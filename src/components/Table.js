@@ -5,18 +5,16 @@ import './Table.css'
 
 
 function CollapseTable(props) {
-    const { excelData,setExcelData } = props;
+    const { excelData=[],setExcelData } = props;
     const [order,setOrder]= useState('ASC')
     const [search ,setSearch] = useState('')
-    const [ currentPage, setCurrentPage] = (0)
-    const perPage = 10
-    const [totalPage,setTotalpage] = useState()
-    const noOfli = excelData/10
-    const [collapse,setCollapse] = useState(true)
+    const [ currentPage, setCurrentPage] =useState(0)
+    const perPage = 2
 
-    for(let i = 1; i<= noOfli;i++){
-      setTotalpage([...totalPage,i])
-    }
+
+    const [collapse,setCollapse] = useState(true)
+    console.log("x", excelData.length);
+
 
     const sorting = (col) => {
       console.log(col)
@@ -40,16 +38,18 @@ function CollapseTable(props) {
     }
 
 
+    const slicedData = excelData?.slice(currentPage* perPage, (currentPage+1)*perPage)
+
   return (
     <div className='viewer'>
-        {excelData===null&&<>No file selected</>}
-        {excelData!==null&&(
+        {!excelData.length&&<>No file selected</>}
+        {excelData.length!==0 &&(
           <div className='table-responsive'>
             <form>
               <div>
                 <input type="text" className="search" placeholder='Search' onChange={(e)=>setSearch(e.target.value)}/>
               </div>
-              <button className='collapseButton' onClick={handleCollapse} >{collapse?'Colllapse Table':'Show '}</button>
+              <button className='collapseButton' onClick={handleCollapse} >{collapse?'Colllapse Table':'Show Table'}</button>
               {collapse ? <table className='table'>
                 <thead>
                 <tr>
@@ -61,15 +61,15 @@ function CollapseTable(props) {
                 </tr>          
                 </thead>
                 <tbody>
-                  <Data perPage={perPage} currentPage={currentPage} excelData={excelData} search={search} setExcelData={setExcelData}/>
+                  <Data  excelData={slicedData} search={search} setExcelData={setExcelData}/>
                 </tbody>
               </table>
               : ''
               }
               <nav className='d-flex justify-content-center'>
                 <ul className='pagination'>
-                  {totalPage.map((item)=> (
-                   <li className='page-link' onClick={()=>setCurrentPage(item)}>{item}</li>
+                  {new Array(Math.ceil(excelData.length/perPage)).fill(0).map((item, index)=> (
+                   <li className='page-link' onClick={()=>setCurrentPage(index)}>{index+1}</li>
                   ))}
                   
                 </ul>
