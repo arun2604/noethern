@@ -1,0 +1,4 @@
+.editableRow {
+    display: flex;
+    flex-direction: column;
+}
