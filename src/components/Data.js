@@ -3,7 +3,7 @@ import EditableRow from './EditableRow/EditableRow'
 import IndividualData from './IndividualExcelData'
 
 function Data(props) {
-    const { excelData, search ,setExcelData} =props;
+    const { excelData, search ,setExcelData,currentPage,perPage} =props;
     const [editDetails ,setEditDetails] = useState(null);
     const [ editData,setEditData ] = useState({
         FirstName: '',
@@ -74,7 +74,7 @@ function Data(props) {
             return item;
         }
         console.log(excelData)
-    }).map((individualExcelData)=>(
+    }).slice(currentPage*10+1,currentPage+1*10).map((individualExcelData)=>(
         <tr key={individualExcelData.Id}>
             <Fragment>
                 {editDetails === individualExcelData.Id ? <EditableRow handleEditFormSave={handleEditFormSave} setEditDetails={setEditDetails} editData={editData} handleEditDataValue={handleEditDataValue} /> 

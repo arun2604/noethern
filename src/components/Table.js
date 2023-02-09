@@ -8,7 +8,15 @@ function CollapseTable(props) {
     const { excelData,setExcelData } = props;
     const [order,setOrder]= useState('ASC')
     const [search ,setSearch] = useState('')
+    const [ currentPage, setCurrentPage] = (0)
+    const perPage = 10
+    const [totalPage,setTotalpage] = useState()
+    const noOfli = excelData/10
     const [collapse,setCollapse] = useState(true)
+
+    for(let i = 1; i<= noOfli;i++){
+      setTotalpage([...totalPage,i])
+    }
 
     const sorting = (col) => {
       console.log(col)
@@ -31,6 +39,7 @@ function CollapseTable(props) {
       setCollapse(!collapse)
     }
 
+
   return (
     <div className='viewer'>
         {excelData===null&&<>No file selected</>}
@@ -52,16 +61,17 @@ function CollapseTable(props) {
                 </tr>          
                 </thead>
                 <tbody>
-                  <Data excelData={excelData} search={search} setExcelData={setExcelData}/>
+                  <Data perPage={perPage} currentPage={currentPage} excelData={excelData} search={search} setExcelData={setExcelData}/>
                 </tbody>
               </table>
               : ''
               }
               <nav className='d-flex justify-content-center'>
                 <ul className='pagination'>
-                  <li className='page-link'>1</li>
-                  <li className='page-link'>2</li>
-                  <li className='page-link'>3</li>
+                  {totalPage.map((item)=> (
+                   <li className='page-link' onClick={()=>setCurrentPage(item)}>{item}</li>
+                  ))}
+                  
                 </ul>
               </nav>
               <p className='instruction'>Click on the column heading to sort</p>
