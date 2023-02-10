@@ -13,7 +13,6 @@ function Upload( props) {
     const handleFile = (e) => {
         let seletedFile = e.target.files[0];
         if(seletedFile) {
-            // console.log(seletedFile.type)
             if(seletedFile && fileType.includes(seletedFile.type)){
                 let reader = new FileReader();
                 reader.readAsArrayBuffer(seletedFile);
@@ -40,7 +39,6 @@ function Upload( props) {
             const workSheet = workbook.Sheets[workbookName]
             const data = XLSX.utils.sheet_to_json(workSheet)
             setExcelData(data)
-            console.log(data)
         }
         else{
             setExcelData(null)
