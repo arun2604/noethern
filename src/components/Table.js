@@ -5,10 +5,10 @@ import './Table.css'
 
 
 function CollapseTable(props) {
-    const { excelData=[],setExcelData } = props;
+    const {excelData=[], setExcelData} = props;
     const [order,setOrder]= useState('ASC')
     const [search ,setSearch] = useState('')
-    const [ currentPage, setCurrentPage] =useState(0)
+    const [currentPage, setCurrentPage] =useState(0)
     const perPage = 2
 
 
