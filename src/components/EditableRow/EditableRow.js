@@ -1,7 +1,8 @@
 import React from 'react'
 import './editable.css'
 
-function EditableRow({editData,handleEditDataValue,setEditDetails,handleEditFormSave}) {
+function EditableRow(props) {
+  const {editData,handleEditDataValue,setEditDetails,handleEditFormSave} = props;
   return (
     <div>
         <div className='editableRow'>
