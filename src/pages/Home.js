@@ -3,7 +3,7 @@ import CollapseTable from '../components/Table'
 import Upload from '../components/Upload'
 
 function Home() {
-  const [ excelData, setExcelData ] = useState([])
+  const [excelData, setExcelData] = useState([])
 
   return (
     <div>
