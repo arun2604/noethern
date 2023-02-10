@@ -17,9 +17,9 @@ function Upload( props) {
             if(seletedFile && fileType.includes(seletedFile.type)){
                 let reader = new FileReader();
                 reader.readAsArrayBuffer(seletedFile);
-                reader.onload = (e) => {
+                reader.onload = (eve) => {
                     setExcelFileError(null)
-                    setExcelFile(e.target.result)
+                    setExcelFile(eve.target.result)
                 }
             }
             else{
