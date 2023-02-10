@@ -49,7 +49,7 @@ function CollapseTable(props) {
               <div>
                 <input type="text" className="search" placeholder='Search' onChange={(e)=>setSearch(e.target.value)}/>
               </div>
-              <button className='collapseButton' onClick={handleCollapse} >{collapse?'Colllapse Table':'Show Table'}</button>
+              <button className='collapseButton' onClick={handleCollapse} >{collapse?'Colllapse Table':'Show '}</button>
               {collapse ? <table className='table'>
                 <thead>
                 <tr>
