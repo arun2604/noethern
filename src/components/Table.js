@@ -11,10 +11,7 @@ function CollapseTable(props) {
     const [currentPage, setCurrentPage] =useState(0)
     const perPage = 2
 
-
     const [collapse,setCollapse] = useState(true)
-    console.log("x", excelData.length);
-
 
     const sorting = (col) => {
       console.log(col)
