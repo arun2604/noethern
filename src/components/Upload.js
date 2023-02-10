@@ -25,7 +25,6 @@ function Upload( props) {
             else{
                 setExcelFileError('Please select only Excel file')
                 setExcelFile(null)
-                console.log('Please select only Excel file')
             }
         }
         else{
