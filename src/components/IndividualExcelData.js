@@ -1,6 +1,7 @@
 import React from 'react'
 
-const IndividualData = ({individualExcelData,handleEditClick,handleDelete}) => {
+const IndividualData = (props) => {
+  const {individualExcelData, handleEditClick, handleDelete}= props
   return (
       <>
           <td>{individualExcelData.Id}</td>
