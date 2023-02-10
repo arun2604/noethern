@@ -3,9 +3,9 @@ import * as XLSX from 'xlsx'
 import './upload.css'
 
 function Upload( props) {
-    const { setExcelData } = props
-    const [ excelFile,setExcelFile ] = useState(null);
-    const [ excelFileError,setExcelFileError ] = useState(null);
+    const {setExcelData} = props
+    const [excelFile, setExcelFile] = useState(null);
+    const [excelFileError, setExcelFileError] = useState(null);
     const fileType = ['application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']
 
     console.log(excelFile)
