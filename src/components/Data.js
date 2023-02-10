@@ -73,7 +73,6 @@ function Data(props) {
         else if(item.LastName.toLowerCase().includes(search.toLowerCase())|| item.FirstName.toLowerCase().includes(search.toLowerCase()) ){
             return item;
         }
-        console.log(excelData)
     }).map((individualExcelData)=>(
         <tr key={individualExcelData.Id}>
             <Fragment>
