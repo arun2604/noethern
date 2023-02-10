@@ -29,7 +29,7 @@ function EditableRow(props) {
         </div>
         <div>
             <button onClick={handleEditFormSave}>Save</button>
-            <button onClick={(e)=>setEditDetails(null)}>Cancel</button>
+            <button onClick={()=>setEditDetails(null)}>Cancel</button>
         </div>
     </div>
   )
