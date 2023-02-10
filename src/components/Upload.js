@@ -28,7 +28,7 @@ function Upload( props) {
             }
         }
         else{
-            console.log('plz select file')
+            setExcelFileError('plz select file')
         }
     }
 
